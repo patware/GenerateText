@@ -38,6 +38,7 @@ namespace GenerateText.ViewModel
                 SimpleIoc.Default.Register<IDataService, DataService>();
             }
 
+            SimpleIoc.Default.Register<Services.IQaStringGeneratorService, Services.QaStringGeneratorService>();
             SimpleIoc.Default.Register<MainViewModel>();
         }
 

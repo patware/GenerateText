@@ -12,13 +12,18 @@ namespace GenerateText.ViewModel
     public class MainViewModel : ViewModelBase
     {
         private readonly IDataService _dataService;
+        private readonly Services.IQaStringGeneratorService _generator;
 
         /// <summary>
         /// Initializes a new instance of the MainViewModel class.
         /// </summary>
-        public MainViewModel(IDataService dataService)
+        public MainViewModel(IDataService dataService, Services.IQaStringGeneratorService generator)
         {
             _dataService = dataService;
+            _generator = generator;
+
+            this.PropertyChanged += MainViewModel_PropertyChanged;
+
             _dataService.GetData(
                 (item, error) =>
                 {
@@ -31,6 +36,14 @@ namespace GenerateText.ViewModel
                     Pattern = "Pattern";
                     NumberOfCharacters = 10;
                 });
+        }
+
+        void MainViewModel_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        {
+            if (e.PropertyName == ResultsPropertyName)
+                return;
+
+            this.Results = _generator.Generate(this.NumberOfCharacters, this.Pattern, this.QAApproved);
         }
 
         #region properties
@@ -63,7 +76,6 @@ namespace GenerateText.ViewModel
                 RaisePropertyChanging(PatternPropertyName);
                 _pattern = value;
                 RaisePropertyChanged(PatternPropertyName);
-                buildResults();
             }
         }
 
@@ -98,7 +110,6 @@ namespace GenerateText.ViewModel
                 RaisePropertyChanging(NumberOfCharactersPropertyName);
                 _numberOfCharacters = value;
                 RaisePropertyChanged(NumberOfCharactersPropertyName);
-                buildResults();
             }
         }
         #endregion 
@@ -132,7 +143,6 @@ namespace GenerateText.ViewModel
                 RaisePropertyChanging(QAApprovedPropertyName);
                 _qAApproved = value;
                 RaisePropertyChanged(QAApprovedPropertyName);
-                buildResults();
             }
         }
         #endregion
@@ -169,43 +179,6 @@ namespace GenerateText.ViewModel
             }
         }
         #endregion
-        #endregion
-
-        #region Private parts...
-        private void buildResults()
-        {
-            if (string.IsNullOrEmpty(this.Pattern)) return;
-            if (this.NumberOfCharacters <= 0) return;
-    
-            var sb = new System.Text.StringBuilder();
-
-            while(sb.Length< this.NumberOfCharacters)
-            {
-                sb.Append(this.Pattern);
-            }
-
-            var s = sb.ToString();
-        
-            if (this.QAApproved)
-            {
-                string suffix = string.Format("_{0}_", this.NumberOfCharacters);
-                if (this.NumberOfCharacters > suffix.Length)
-                {
-                    s = s.Substring(0, this.NumberOfCharacters - suffix.Length);
-                    s = string.Concat(s, suffix);
-                }
-                else
-                {
-                    s = s.Substring(0, this.NumberOfCharacters);
-                }
-            }
-            else
-            {
-                s = s.Substring(0,this.NumberOfCharacters);
-            }
-            this.Results = s;
-            
-        }
         #endregion
     }
 }

@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:xtk="http://schemas.xceed.com/wpf/xaml/toolkit"
         xmlns:ignore="http://www.ignore.com"
         mc:Ignorable="d ignore"
         Height="300"
@@ -42,10 +43,10 @@
         </Grid.ColumnDefinitions>
 
         <TextBlock Grid.Row="0" Grid.Column="0">Enter the Text Pattern:</TextBlock>
-        <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Pattern,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"></TextBox>
+        <xtk:WatermarkTextBox Grid.Row="0" Grid.Column="1" Text="{Binding Pattern,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Watermark="Enter a text pattern, or we'll use the alphabet."></xtk:WatermarkTextBox>
 
         <TextBlock Grid.Row="1" Grid.Column="0">Enter the number of characters:</TextBlock>
-        <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding NumberOfCharacters,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"></TextBox>
+        <xtk:IntegerUpDown Grid.Row="1" Grid.Column="1" Value="{Binding NumberOfCharacters,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Minimum="0"></xtk:IntegerUpDown>
         
         <TextBlock Grid.Row="2" Grid.Column="0">Add QA Approved :) suffix (as per Annette)</TextBlock>
         <CheckBox Grid.Row="2" Grid.Column="1" IsChecked="{Binding QAApproved,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center"></CheckBox>
