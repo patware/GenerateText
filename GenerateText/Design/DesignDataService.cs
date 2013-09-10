@@ -3,14 +3,25 @@ using GenerateText.Model;
 
 namespace GenerateText.Design
 {
-    public class DesignDataService : IDataService
+    public sealed class DesignDataService : IDataService
     {
-        public void GetData(Action<DataItem, Exception> callback)
+        void IDataService.GetData(Action<DataItem, Exception> callback)
         {
             // Use this to create design time data
 
-            var item = new DataItem("Welcome to MVVM Light [design]");
+            var item = new DataItem();
+            item.LastPattern = "Patrice";
+            item.LastCount = 12;
+            item.LastQa = true;
+            item.LastCountList = "5 10 15 20";
             callback(item, null);
+                       
         }
+
+        void IDataService.Save(DataItem item)
+        {
+            
+        }
+
     }
 }

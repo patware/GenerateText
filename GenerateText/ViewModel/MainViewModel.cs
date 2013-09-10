@@ -1,5 +1,6 @@
 ﻿using GalaSoft.MvvmLight;
 using GenerateText.Model;
+using System.Linq;
 
 namespace GenerateText.ViewModel
 {
@@ -22,6 +23,8 @@ namespace GenerateText.ViewModel
             _dataService = dataService;
             _generator = generator;
 
+            _generatedTexts = new System.Collections.ObjectModel.ObservableCollection<TextItemViewModel>();
+
             this.PropertyChanged += MainViewModel_PropertyChanged;
 
             _dataService.GetData(
@@ -33,8 +36,14 @@ namespace GenerateText.ViewModel
                         return;
                     }
 
-                    Pattern = "Pattern";
-                    NumberOfCharacters = 10;
+                    _pattern = item.LastPattern;
+                    _numberOfCharacters = item.LastCount;
+                    _qAApproved = item.LastQa;
+                    _countList = item.LastCountList;
+
+                    _results = _generator.Generate(this.NumberOfCharacters, this.Pattern, this.QAApproved);
+
+                    generateCountList();
                 });
         }
 
@@ -43,7 +52,76 @@ namespace GenerateText.ViewModel
             if (e.PropertyName == ResultsPropertyName)
                 return;
 
-            this.Results = _generator.Generate(this.NumberOfCharacters, this.Pattern, this.QAApproved);
+            switch (e.PropertyName)
+            {
+                case PatternPropertyName:
+                    this.Results = _generator.Generate(this.NumberOfCharacters, this.Pattern, this.QAApproved);
+                    generateCountList();
+                    saveSettings();
+                    break;
+
+                case NumberOfCharactersPropertyName:
+                    this.Results = _generator.Generate(this.NumberOfCharacters, this.Pattern, this.QAApproved);
+                    saveSettings();
+                    break;
+
+                case QAApprovedPropertyName:
+                    this.Results = _generator.Generate(this.NumberOfCharacters, this.Pattern, this.QAApproved);
+                    generateCountList();
+                    saveSettings();
+                    break;
+
+                case CountListPropertyName:
+                    generateCountList();
+                    saveSettings();
+                    break;
+            }
+            
+        }
+
+        private void saveSettings()
+        {
+            var item = new DataItem()
+            {
+                LastCount = this.NumberOfCharacters
+                , LastPattern = this.Pattern
+                , LastQa = this.QAApproved
+                , LastCountList = this.CountList
+            };
+
+            _dataService.Save(item);
+
+        }
+
+        private void generateCountList()
+        {
+            var l = new System.Collections.Generic.List<int>();
+
+            var ss = this._countList.Split(new string[] { " " }, System.StringSplitOptions.RemoveEmptyEntries);
+
+            foreach (var s in ss)
+            {
+                var i = 0;
+
+                if (int.TryParse(s, out i))
+                {
+                    l.Add(i);
+                }
+            }
+
+            while (_generatedTexts.Count < l.Count)
+                _generatedTexts.Add(new TextItemViewModel());
+
+            while (_generatedTexts.Count > l.Count)
+                _generatedTexts.RemoveAt(_generatedTexts.Count-1);
+            
+            for (int i = 0; i < l.Count; i++)
+            {
+                _generatedTexts[i].Count = l[i];
+                _generatedTexts[i].Display = _generator.Generate(l[i], this.Pattern, this.QAApproved);
+
+            }
+            
         }
 
         #region properties
@@ -179,6 +257,75 @@ namespace GenerateText.ViewModel
             }
         }
         #endregion
+
+        #region CountList
+        /// <summary>
+        /// The <see cref="CountList" /> property's name.
+        /// </summary>
+        public const string CountListPropertyName = "CountList";
+
+        private string _countList;
+
+        /// <summary>
+        /// Sets and gets the CountList property.
+        /// Changes to that property's value raise the PropertyChanged event. 
+        /// </summary>
+        public string CountList
+        {
+            get
+            {
+                return _countList;
+            }
+
+            set
+            {
+                if (_countList == value)
+                {
+                    return;
+                }
+
+                RaisePropertyChanging(CountListPropertyName);
+                _countList = value;
+                RaisePropertyChanged(CountListPropertyName);
+            }
+        }
+        #endregion
+	
+
+        #region GeneratedTexts
+        /// <summary>
+        /// The <see cref="GeneratedTexts" /> property's name.
+        /// </summary>
+        public const string GeneratedTextsPropertyName = "GeneratedTexts";
+
+        private System.Collections.ObjectModel.ObservableCollection<TextItemViewModel> _generatedTexts;
+
+        /// <summary>
+        /// Sets and gets the GeneratedTexts property.
+        /// Changes to that property's value raise the PropertyChanged event. 
+        /// </summary>
+        public System.Collections.ObjectModel.ObservableCollection<TextItemViewModel> GeneratedTexts
+        {
+            get
+            {
+                return _generatedTexts;
+            }
+
+            set
+            {
+                if (_generatedTexts == value)
+                {
+                    return;
+                }
+
+                RaisePropertyChanging(GeneratedTextsPropertyName);
+                _generatedTexts = value;
+                RaisePropertyChanged(GeneratedTextsPropertyName);
+            }
+        }
+        #endregion
+	
+	
         #endregion
     }
 }

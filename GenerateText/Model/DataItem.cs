@@ -7,15 +7,10 @@ namespace GenerateText.Model
 {
     public class DataItem
     {
-        public DataItem(string title)
-        {
-            Title = title;
-        }
+        public string LastPattern { get; set; }
+        public int LastCount { get; set; }
+        public bool LastQa { get; set; }
 
-        public string Title
-        {
-            get;
-            private set;
-        }
+        public string LastCountList { get; set; }
     }
 }
