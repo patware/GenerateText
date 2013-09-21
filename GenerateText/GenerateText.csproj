@@ -26,14 +26,14 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <InstallUrl>https://github.com/patware/GenerateText/releases/</InstallUrl>
+    <InstallUrl>https://github.com/patware/GenerateText/releases/download/v1.1/</InstallUrl>
     <SupportUrl>https://github.com/patware/GenerateText/wiki</SupportUrl>
     <ProductName>Generate Text</ProductName>
     <PublisherName>Patrice Calvé</PublisherName>
     <SuiteName>Patware</SuiteName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>3</ApplicationRevision>
+    <ApplicationRevision>4</ApplicationRevision>
     <ApplicationVersion>1.1.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
