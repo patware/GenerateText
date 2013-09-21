@@ -5,7 +5,7 @@ using System.Text;
 
 namespace GenerateText.Services
 {
-    public class QaStringGeneratorService : GenerateText.Services.IQaStringGeneratorService
+    public sealed class QaStringGeneratorService : GenerateText.Services.IQaStringGeneratorService
     {
         private class Suffix
         {
