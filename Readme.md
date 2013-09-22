@@ -2,11 +2,12 @@ GenerateText - A simple utility that generates text for QA
 
 Current Version: 1.1
 
-###Dependencies:
+###Development Dependencies:
 
-You need Laurent Bugnion's (GalaSoft) Mvvm Light Toolkik
-- The Codeplex: http://mvvmlight.codeplex.com/
-- Version 4.0.23.4. http://mvvmlight.codeplex.com/releases/view/90815
+- Visual Studio 2012
+- You need Laurent Bugnion's (GalaSoft) Mvvm Light Toolkik
+	- Codeplex: http://mvvmlight.codeplex.com/
+	- Version 4.0.23.4. http://mvvmlight.codeplex.com/releases/view/90815
 
 ###History: 
 
