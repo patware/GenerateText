@@ -8,11 +8,11 @@
         xmlns:xtk="http://schemas.xceed.com/wpf/xaml/toolkit"
         xmlns:ignore="http://www.ignore.com"
         mc:Ignorable="d ignore"
-        Height="300"
-        Width="526"
+        Height="456"
+        Width="672"
         Title="GenerateText - by Patware"
         DataContext="{Binding Main, Source={StaticResource Locator}}">
-    
+
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -27,7 +27,7 @@
             <Style TargetType="TextBox">
                 <Setter Property="Padding" Value="5"/>
             </Style>
-        </ResourceDictionary>        
+        </ResourceDictionary>
     </Window.Resources>
 
     <Grid x:Name="LayoutRoot">
@@ -47,25 +47,25 @@
         </Grid.ColumnDefinitions>
 
         <TextBlock Grid.Row="0" Grid.Column="0">Enter the Text Pattern:</TextBlock>
-        <xtk:WatermarkTextBox Grid.Row="0" Grid.Column="1" Text="{Binding Pattern,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Watermark="Enter a text pattern, or we'll use the alphabet."></xtk:WatermarkTextBox>
+        <xtk:WatermarkTextBox Grid.Row="0" Grid.Column="1" Text="{Binding Pattern,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Watermark="Enter a text pattern, or we'll use the alphabet." Margin="3"></xtk:WatermarkTextBox>
 
         <TextBlock Grid.Row="1" Grid.Column="0">Enter the number of characters:</TextBlock>
-        <xtk:IntegerUpDown Grid.Row="1" Grid.Column="1" Value="{Binding NumberOfCharacters,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Minimum="0"></xtk:IntegerUpDown>
-        
+        <xtk:IntegerUpDown Grid.Row="1" Grid.Column="1" Value="{Binding NumberOfCharacters,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Minimum="0" Width="70" HorizontalAlignment="Left" Margin="3"></xtk:IntegerUpDown>
+
         <TextBlock Grid.Row="2" Grid.Column="0">Add QA Approved :) suffix (as per Annette)</TextBlock>
         <CheckBox Grid.Row="2" Grid.Column="1" IsChecked="{Binding QAApproved,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center"></CheckBox>
 
         <TextBox Grid.Row="3" Grid.ColumnSpan="2" Text="{Binding Results}" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"></TextBox>
-        
-        <Grid Grid.Row="4" Grid.ColumnSpan="2">
+
+        <Grid Grid.Row="4" Grid.ColumnSpan="2" Margin="3">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <TextBlock Grid.Column="0" Padding="5 0 5 0" VerticalAlignment="Center">Count List</TextBlock>
-            <TextBox Grid.Column="1" Text="{Binding CountList, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+            <TextBox Grid.Column="1" Text="{Binding CountList, UpdateSourceTrigger=PropertyChanged}" Margin="3"></TextBox>
         </Grid>
-        
+
         <ListView Grid.Row="5" Grid.ColumnSpan="2" ItemsSource="{Binding GeneratedTexts}">
             <ListView.View>
                 <GridView>
@@ -82,7 +82,7 @@
                                                                               Mode=OneWay}"
                                                    MustToggleIsEnabledValue="True" />                                               
                                             </i:EventTrigger>
-                                        </i:Interaction.Triggers>                                        
+                                        </i:Interaction.Triggers>
                                     </TextBlock>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
