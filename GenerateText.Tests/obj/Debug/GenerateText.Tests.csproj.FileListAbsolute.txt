@@ -1,0 +1,15 @@
+H:\Dev\Github\Patware\GenerateText\GenerateText.Tests\obj\Debug\GenerateText.Tests.csprojResolveAssemblyReference.cache
+H:\Dev\Github\Patware\GenerateText\GenerateText.Tests\bin\Debug\GenerateText.Tests.dll
+H:\Dev\Github\Patware\GenerateText\GenerateText.Tests\bin\Debug\GenerateText.Tests.pdb
+H:\Dev\Github\Patware\GenerateText\GenerateText.Tests\bin\Debug\GenerateText.exe
+H:\Dev\Github\Patware\GenerateText\GenerateText.Tests\bin\Debug\GalaSoft.MvvmLight.WPF4.dll
+H:\Dev\Github\Patware\GenerateText\GenerateText.Tests\bin\Debug\Microsoft.Practices.ServiceLocation.dll
+H:\Dev\Github\Patware\GenerateText\GenerateText.Tests\bin\Debug\GalaSoft.MvvmLight.Extras.WPF4.dll
+H:\Dev\Github\Patware\GenerateText\GenerateText.Tests\bin\Debug\System.Windows.Interactivity.dll
+H:\Dev\Github\Patware\GenerateText\GenerateText.Tests\bin\Debug\GenerateText.pdb
+H:\Dev\Github\Patware\GenerateText\GenerateText.Tests\bin\Debug\GalaSoft.MvvmLight.WPF4.xml
+H:\Dev\Github\Patware\GenerateText\GenerateText.Tests\bin\Debug\Microsoft.Practices.ServiceLocation.xml
+H:\Dev\Github\Patware\GenerateText\GenerateText.Tests\bin\Debug\GalaSoft.MvvmLight.Extras.WPF4.xml
+H:\Dev\Github\Patware\GenerateText\GenerateText.Tests\bin\Debug\System.Windows.Interactivity.xml
+H:\Dev\Github\Patware\GenerateText\GenerateText.Tests\obj\Debug\GenerateText.Tests.dll
+H:\Dev\Github\Patware\GenerateText\GenerateText.Tests\obj\Debug\GenerateText.Tests.pdb
