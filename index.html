@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="GenerateText : A simple utility that generates text for QA" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>GenerateText</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/patware/GenerateText">View on GitHub</a>
+
+          <h1 id="project_title">GenerateText</h1>
+          <h2 id="project_tagline">A simple utility that generates text for QA</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/patware/GenerateText/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/patware/GenerateText/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <p>GenerateText - A simple utility that generates text for QA</p>
+
+<p>The idea behind this application is to allow QA/Testers to generate text with known lengths and patterns.  The QA/Tester simply copies the generated texts into the application to test's input boxes.</p>
+
+<p>The "Approved by Annette" feature is a feature for a good friend a mine, Annette Bose.  The goal was to add a trailing/suffix that indicates the end of the string, but with its actual length.  This way, if the string being tested gets truncated down the line, the trailing/suffix would become mangled.</p>
+
+<p>Ex: input string: abcdef_10_ the input box has 10 characters, but the database has 8, the return string would become abcdef_1  so a bug.</p>
+
+<p>Extremely simple.</p>
+
+<p>Here are features that I'd like to add:  </p>
+
+<ul>
+<li>The ability to change the suffix character "_"</li>
+<li>A "snoop like" utility that would "paste" the right number of characters based on the input boxe's maxlength.  The user would simply hit paste, paste, paste (or whatever CTRL... combo) and the utility would generate the targeted max length.</li>
+</ul>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">GenerateText maintained by <a href="https://github.com/patware">patware</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
