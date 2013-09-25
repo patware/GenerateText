@@ -8,7 +8,7 @@
         <expiration maximumAge="0" unit="days" />
       </update>
     </subscription>
-    <deploymentProvider codebase="https://github.com/patware/GenerateText/releases/download/v1.1/GenerateText.application" />
+    <deploymentProvider codebase="http://patware.github.io/GenerateText/C1/GenerateText.application" />
   </deployment>
   <compatibleFrameworks xmlns="urn:schemas-microsoft-com:clickonce.v2">
     <framework targetVersion="4.0" profile="Client" supportedRuntime="4.0.30319" />
