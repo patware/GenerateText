@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <PublishUrlHistory>H:\Dev\Github\Patware\GenerateText\Publish\|ftp://www.calve.net/Calve/d/GenerateText/|publish\</PublishUrlHistory>
-    <InstallUrlHistory>http://patware.github.io/GenerateText/C1/|http://patware.calve.net/d/GenerateText/|https://github.com/patware/GenerateText/releases/download/v1.1/|https://github.com/patware/GenerateText/releases/</InstallUrlHistory>
+    <PublishUrlHistory>ftp://www.calve.net/Calve/d/GenerateText/|H:\Dev\Github\Patware\GenerateText\Publish\|publish\</PublishUrlHistory>
+    <InstallUrlHistory>http://patware.calve.net/d/GenerateText/|http://patware.github.io/GenerateText/C1/|https://github.com/patware/GenerateText/releases/download/v1.1/|https://github.com/patware/GenerateText/releases/</InstallUrlHistory>
     <SupportUrlHistory>https://github.com/patware/GenerateText/wiki</SupportUrlHistory>
     <UpdateUrlHistory />
     <BootstrapperUrlHistory />
